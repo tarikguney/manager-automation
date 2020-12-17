@@ -1,0 +1,3 @@
+[submodule "TarikGuney.DevOpsAutomation.FunctionApp/secrets"]
+	path = TarikGuney.DevOpsAutomation.FunctionApp/secrets
+	url = git@github.com:tarikguney/manager-automation-secrets
