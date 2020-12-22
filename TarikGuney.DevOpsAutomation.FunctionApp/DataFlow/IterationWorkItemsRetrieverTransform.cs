@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -6,7 +5,6 @@ using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using Newtonsoft.Json.Linq;
 using TarikGuney.DevOpsAutomation.SettingsModels;
-using TarikGuney.DevOpsReminder.SettingsModels;
 
 namespace TarikGuney.DevOpsAutomation.DataFlow
 {

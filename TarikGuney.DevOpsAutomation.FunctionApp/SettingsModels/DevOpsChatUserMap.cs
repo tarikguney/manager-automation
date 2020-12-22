@@ -1,4 +1,4 @@
-namespace TarikGuney.DevOpsReminder.SettingsModels
+namespace TarikGuney.DevOpsAutomation.SettingsModels
 {
     public class DevOpsChatUserMap
     {

@@ -8,7 +8,6 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using TarikGuney.DevOpsAutomation.SettingsModels;
-using TarikGuney.DevOpsReminder.SettingsModels;
 
 namespace TarikGuney.DevOpsAutomation
 {
