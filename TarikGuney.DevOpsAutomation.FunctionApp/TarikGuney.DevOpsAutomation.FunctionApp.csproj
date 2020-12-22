@@ -1,8 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
         <AzureFunctionsVersion>V3</AzureFunctionsVersion>
         <RootNamespace>TarikGuney.DevOpsAutomation</RootNamespace>
+        <LangVersion>default</LangVersion>
+        <Company>TarikGuney.ManagerAutomation.FunctionApp</Company>
+        <Product>TarikGuney.ManagerAutomation.FunctionApp</Product>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />
