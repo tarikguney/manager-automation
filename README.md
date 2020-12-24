@@ -2,7 +2,7 @@ Developed with the following technologies by [@tarikguney](https://github.com/ta
 
 ![](./assets/logo/azure-functions.png) ![](./assets/logo/dotnet-core-logo.png)
 
-![](./assets/banner/manager-automation-hq-banner.png)
+![](./assets/manager-automation-hq-banner.png)
 
 # Manager Automation
 
