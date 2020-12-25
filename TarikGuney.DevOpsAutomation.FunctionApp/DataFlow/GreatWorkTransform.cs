@@ -6,12 +6,12 @@ using System.Threading.Tasks.Dataflow;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
-namespace TarikGuney.DevOpsAutomation.DataFlow
+namespace TarikGuney.ManagerAutomation.DataFlow
 {
     public static class GreatWorkTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new TransformBlock<List<JObject>, string>(workItems =>
+            new(workItems =>
             {
                 var workItemsByPersons = workItems
                     .Where(wi => wi["fields"] is JObject fields &&

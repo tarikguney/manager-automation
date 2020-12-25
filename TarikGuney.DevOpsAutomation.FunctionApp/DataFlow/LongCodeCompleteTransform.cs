@@ -6,9 +6,9 @@ using System.Threading.Tasks.Dataflow;
 using System.Web;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
-using TarikGuney.DevOpsAutomation.Helpers;
+using TarikGuney.ManagerAutomation.Helpers;
 
-namespace TarikGuney.DevOpsAutomation.DataFlow
+namespace TarikGuney.ManagerAutomation.DataFlow
 {
 	public static class LongCodeCompleteTransform
 	{

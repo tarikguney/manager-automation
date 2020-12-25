@@ -2,10 +2,11 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <AzureFunctionsVersion>V3</AzureFunctionsVersion>
-        <RootNamespace>TarikGuney.DevOpsAutomation</RootNamespace>
+        <RootNamespace>TarikGuney.ManagerAutomation</RootNamespace>
         <LangVersion>latest</LangVersion>
         <Company>TarikGuney.ManagerAutomation.FunctionApp</Company>
         <Product>TarikGuney.ManagerAutomation.FunctionApp</Product>
+        <AssemblyName>TarikGuney.ManagerAutomation.FunctionApp</AssemblyName>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />

@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
 
-namespace TarikGuney.DevOpsAutomation.Helpers
+namespace TarikGuney.ManagerAutomation.Helpers
 {
     public static class DateDiffHelper
     {

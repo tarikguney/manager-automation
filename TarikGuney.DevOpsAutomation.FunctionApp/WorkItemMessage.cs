@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace TarikGuney.DevOpsAutomation
+namespace TarikGuney.ManagerAutomation
 {
     public class WorkItemMessage
     {

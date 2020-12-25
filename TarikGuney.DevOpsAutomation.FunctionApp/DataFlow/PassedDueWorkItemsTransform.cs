@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks.Dataflow;
 using System.Web;
 using Newtonsoft.Json.Linq;
-using TarikGuney.DevOpsAutomation.Helpers;
+using TarikGuney.ManagerAutomation.Helpers;
 
-namespace TarikGuney.DevOpsAutomation.DataFlow
+namespace TarikGuney.ManagerAutomation.DataFlow
 {
     public static class PassedDueWorkItemsTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new TransformBlock<List<JObject>, string>(workItems =>
+            new(workItems =>
             {
                 var offendingWorkItems = workItems
                     .Where(wi => wi["fields"] is JObject fields &&

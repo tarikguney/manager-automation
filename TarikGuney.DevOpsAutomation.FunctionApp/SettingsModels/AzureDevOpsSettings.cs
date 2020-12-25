@@ -1,4 +1,4 @@
-namespace TarikGuney.DevOpsAutomation.SettingsModels
+namespace TarikGuney.ManagerAutomation.SettingsModels
 {
     public class AzureDevOpsSettings
     {

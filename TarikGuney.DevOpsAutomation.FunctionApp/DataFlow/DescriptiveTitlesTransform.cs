@@ -7,7 +7,7 @@ using System.Web;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
-namespace TarikGuney.DevOpsAutomation.DataFlow
+namespace TarikGuney.ManagerAutomation.DataFlow
 {
     public static class DescriptiveTitlesTransform
     {

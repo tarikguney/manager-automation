@@ -3,11 +3,11 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks.Dataflow;
 
-namespace TarikGuney.DevOpsAutomation.DataFlow
+namespace TarikGuney.ManagerAutomation.DataFlow
 {
 	public static class CurrentIterationGoogleChatMessageSenderAction
 	{
-		public static ActionBlock<string[]> Block => new ActionBlock<string[]>(async messages =>
+		public static ActionBlock<string[]> Block => new(async messages =>
 		{
 			var allCompleted = messages.All(string.IsNullOrWhiteSpace);
 

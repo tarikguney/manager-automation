@@ -5,10 +5,10 @@ using System.Threading.Tasks.Dataflow;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
-using TarikGuney.DevOpsAutomation.DataFlow;
-using TarikGuney.DevOpsAutomation.SettingsModels;
+using TarikGuney.ManagerAutomation.DataFlow;
+using TarikGuney.ManagerAutomation.SettingsModels;
 
-namespace TarikGuney.DevOpsAutomation
+namespace TarikGuney.ManagerAutomation
 {
     public static class CurrentIterationAutomationFunction
     {

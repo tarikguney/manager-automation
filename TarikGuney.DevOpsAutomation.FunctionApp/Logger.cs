@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Logging;
 
-namespace TarikGuney.DevOpsAutomation
+namespace TarikGuney.ManagerAutomation
 {
 	public static class Logger
 	{

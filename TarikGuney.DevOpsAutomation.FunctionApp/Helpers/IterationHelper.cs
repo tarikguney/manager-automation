@@ -1,6 +1,6 @@
 using System;
 
-namespace TarikGuney.DevOpsAutomation.Helpers
+namespace TarikGuney.ManagerAutomation.Helpers
 {
     public static class IterationHelper
     {

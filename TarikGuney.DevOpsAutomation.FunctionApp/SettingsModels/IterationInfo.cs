@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace TarikGuney.DevOpsAutomation.SettingsModels
+namespace TarikGuney.ManagerAutomation.SettingsModels
 {
 	public class IterationInfo
 	{

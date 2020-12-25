@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
-using TarikGuney.DevOpsAutomation.SettingsModels;
+using TarikGuney.ManagerAutomation.SettingsModels;
 
-namespace TarikGuney.DevOpsAutomation
+namespace TarikGuney.ManagerAutomation
 {
 	public static class Config
 	{

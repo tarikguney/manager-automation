@@ -4,9 +4,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Threading.Tasks.Dataflow;
 using Newtonsoft.Json.Linq;
-using TarikGuney.DevOpsAutomation.SettingsModels;
+using TarikGuney.ManagerAutomation.SettingsModels;
 
-namespace TarikGuney.DevOpsAutomation.DataFlow
+namespace TarikGuney.ManagerAutomation.DataFlow
 {
 	public class IterationWorkItemsRetrieverTransform
 	{
@@ -20,7 +20,7 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
 		}
 
 		public static TransformBlock<IterationTimeFrame, List<JObject>> Block =>
-			new TransformBlock<IterationTimeFrame, List<JObject>>(async iteration =>
+			new(async iteration =>
 			{
 				var retriever =
 					new IterationWorkItemsRetrieverTransform(Config.AzureDevOpsSettings,
