@@ -19,7 +19,7 @@ namespace TarikGuney.DevOpsAutomation
         {
             // Sets the settings model defined as static properties in the class.
             await Config.SetSharedSettings(context);
-
+            Logger.CurrentLogger = log;
             // No need to send anything on the first day of the sprint since it is the planning day,
             // and people most likely won't have much time to keep their work items current.
             if (Config.CurrentIteration.StartDate.Date == DateTime.Now.Date)

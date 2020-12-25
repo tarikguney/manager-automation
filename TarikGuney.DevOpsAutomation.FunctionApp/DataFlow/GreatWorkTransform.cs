@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks.Dataflow;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 namespace TarikGuney.DevOpsAutomation.DataFlow
@@ -63,6 +64,10 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
                     var chatDisplayName = devOpsGoogleChatUserMap == null
                         ? userDisplayName
                         : $"<users/{devOpsGoogleChatUserMap.GoogleChatUserId}>";
+
+                    Logger.CurrentLogger.LogInformation(
+	                    "BOARD: Closed everything in the current sprint {currentIteration}. Assigned to {userEmail}.",
+	                    Config.CurrentIteration.Name, userEmail);
 
                     messageBuilder.Append(
                         $"{chatDisplayName}, great work 👏👏👏! You *closed* all of your work items! 🎉 \n\n");

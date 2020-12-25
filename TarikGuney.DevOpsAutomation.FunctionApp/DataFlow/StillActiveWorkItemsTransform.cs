@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks.Dataflow;
 using System.Web;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using TarikGuney.DevOpsAutomation.Helpers;
 
@@ -12,7 +13,7 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
     public static class StillActiveWorkItemsTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new TransformBlock<List<JObject>, string>(workItems =>
+            new(workItems =>
             {
                 // Property names that has periods in them won't be parsed by Json.NET as opposed to online JSON Parser tools
                 // eg. $.value[?(@.fields['Microsoft.VSTS.Scheduling.StoryPoints'] == null && @.fields['System.AssignedTo'] != null)]
@@ -44,7 +45,7 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
                                                 $"then move it to the appropriate sprint as it is.";
 
 
-                    // Work items might not have story points, and they have to be sized first. 
+                    // Work items might not have story points, and they have to be sized first.
                     // If a work item happens to be sized at the end of the sprint, then there is no need to make more assumptions
                     // about it, and simply suggest the default recommended message.
                     if (offendingWorkItem["fields"] is JObject fieldsJson &&
@@ -82,6 +83,10 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
                     var chatDisplayName = devOpsGoogleChatUserMap == null
                         ? userDisplayName
                         : $"<users/{devOpsGoogleChatUserMap.GoogleChatUserId}>";
+
+                    Logger.CurrentLogger.LogInformation(
+	                    "BOARD: Still in active state. Story \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.",
+	                    workItemId, workItemTitle, userEmail, Config.CurrentIteration.Name);
 
                     messageBuilder.Append(
                         $"{chatDisplayName}, <{workItemUrl}|{workItemTitle}> is *still active*. {recommendedActionText} \n\n");

@@ -35,17 +35,47 @@ When it is the first day of the new Sprint, the automation service will analyze 
 
 ![](./assets/screenshots/new-sprint-reminders.png)
 
-## Managers-only reminders
-As an engineering manager, it is often crucial to be aware of the work's progression on time and catch the delay before becoming a big problem. There might be many reasons why work is delayed. For instance, engineering might be blocked. Regardless of the reason, if a task is taking an unreasonable amount of time, you will need to reach out and see what's going on and how you can help the team member with the progression of the work. The Manager Automation service collects this information for you -- the engineering manager -- and reports them daily in a private Google Chat room. 
+### Managers-only reminders
+As an engineering manager, it is often crucial to be aware of the work's progression on time and catch the delay before becoming a big problem. There might be many reasons why work is delayed. For instance, engineering might be blocked. Regardless of the reason, if a task is taking an unreasonable amount of time, you will need to reach out and see what's going on and how you can help the team member with the progression of the work. The Manager Automation service collects this information for you -- the engineering manager -- and reports them daily in a private Google Chat room.
 
 ![](./assets/screenshots/managers-only-reminders.png)
 
+## Reporting
 
-## The Complete List of Reminders 
+Reporting is one of the most important capabilities of the Manager Automation tool. The daily reminders are also sent to the [**Azure Application Insights**](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) for a further review by the team and the engineering manager. You can write up reports using these logs to better understand the team's performance and improvement over time. It is up to you when it comes to how to use these reporting capabilities, but a recommended approach is to help the team grow by helping them see what areas they need to work to improve. For instance, if they are not good at estimating the work items, they can objectively see this problem area in the reports and work to improve it over a course of time.
+
+The reporting is a fairly new addition to the manager automation, hence, the documentation lacks enough level of details and screenshots. However, it is simple to use when you integrate the Application Insights to your Azure Functions application. Ensure that you select an Application Insights instance (or create a new one) when you first create your function application.
+
+These are the logs you will see in the Application Insights logs:
+
+```
+BOARD: Missing description for \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.
+
+BOARD: Unclear title for \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.
+
+BOARD: Missing story point for \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.
+
+BOARD: Closed everything from the previous sprint by the first day of the current sprint {currentIteration}. Assigned to {userEmail}.
+
+BOARD: Closed everything in the current sprint {currentIteration}. Assigned to {userEmail}.
+
+BOARD: Pending in incomplete state of {currentState} for {pendingForDays} days. Story \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.
+
+BOARD: Still open in {currentState} state. Story \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}."
+
+BOARD: Still in active state. Story \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.
+```
+Note that all these logs start with `BOARD` to help you distinguish these log entries from the other sort of logs easily.
+
+The log messages above are taken directly from the code. As you might have guessed, they follow [**structural logging**](https://softwareengineering.stackexchange.com/a/312586/3613) pattern; meaning that they can easily be parsed and parameterized with the metadata they carry for each fields as represented by `{ }` as seen in `{workItemId}`.
+
+More documentation and examples will follow as this is one of the most critical functionalities of Manager Automation tool.
+
+## The Complete List of Reminders
 This function application consists of three primary functions:
-1. Current Iteration Automation 
+1. Current Iteration Automation
 1. End of iteration Automation
-1. Restrospective Automation 
+1. Retrospective Automation
 1. Managers-only Reminders
 
 ### Current Iteration Automation
@@ -64,12 +94,12 @@ On the last day of the Sprint, the reminders change. In addition to the ones abo
 
 - If there are work items that are still active, it reminds the possible action items.
 
-### Restrospective Automation
+### Retrospective Automation
 On the first day of the Sprint, this automation checks if there is any remaining work from the previous Sprint. It runs the existing checks and reports them differently, which is more appropriate for the first day of the next Sprint.
 
 ### Managers-only Automation
 
-- Due date reminders. 
+- Due date reminders.
 
 ## Setup and Configuration
 ### Dependencies

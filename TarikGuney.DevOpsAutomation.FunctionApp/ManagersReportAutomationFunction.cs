@@ -17,6 +17,7 @@ namespace TarikGuney.DevOpsAutomation
 		{
 			// Sets the settings model defined as static properties in the class.
 			await Config.SetSharedSettings(context);
+			Logger.CurrentLogger = log;
 
 			var iterationWorkItemsTransformBlock = IterationWorkItemsRetrieverTransform.Block;
 			var managersGoogleMessageSenderActionBlock = ManagersGoogleChatMessageSenderAction.Block;

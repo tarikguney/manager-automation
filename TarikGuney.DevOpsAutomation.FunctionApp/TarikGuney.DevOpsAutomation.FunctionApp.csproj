@@ -3,7 +3,7 @@
         <TargetFramework>net5.0</TargetFramework>
         <AzureFunctionsVersion>V3</AzureFunctionsVersion>
         <RootNamespace>TarikGuney.DevOpsAutomation</RootNamespace>
-        <LangVersion>default</LangVersion>
+        <LangVersion>latest</LangVersion>
         <Company>TarikGuney.ManagerAutomation.FunctionApp</Company>
         <Product>TarikGuney.ManagerAutomation.FunctionApp</Product>
     </PropertyGroup>

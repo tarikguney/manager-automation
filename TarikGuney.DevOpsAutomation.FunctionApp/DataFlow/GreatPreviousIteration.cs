@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks.Dataflow;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 namespace TarikGuney.DevOpsAutomation.DataFlow
@@ -12,7 +13,7 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
         public const string GreatWorkGreeting = "good job";
 
         public static TransformBlock<List<JObject>, string> Block =>
-            new TransformBlock<List<JObject>, string>(workItems =>
+            new(workItems =>
             {
                 var workItemsByPersons = workItems
                     .Where(wi => wi["fields"] is JObject fields &&
@@ -50,6 +51,10 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
                     var chatDisplayName = devOpsGoogleChatUserMap == null
                         ? userDisplayName
                         : $"<users/{devOpsGoogleChatUserMap.GoogleChatUserId}>";
+
+                    Logger.CurrentLogger.LogInformation(
+	                    "BOARD: Closed everything from the previous sprint by the first day of the current sprint {currentIteration}. Assigned to {userEmail}.",
+	                    Config.CurrentIteration.Name, userEmail);
 
                     messageBuilder.Append(
                         $"{chatDisplayName}, {GreatWorkGreeting}! 👏 You *closed* all of *your previous iteration* work items! 🎉 \n\n");

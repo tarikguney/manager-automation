@@ -18,6 +18,7 @@ namespace TarikGuney.DevOpsAutomation
 		{
 			// Sets the settings model defined as static properties in the class.
 			await Config.SetSharedSettings(context);
+			Logger.CurrentLogger = log;
 
 			// Running this function every Monday and only send reminders if it is the beginning of the sprint.
 			if (Config.CurrentIteration.StartDate.Date != DateTime.Now.Date)
@@ -46,7 +47,7 @@ namespace TarikGuney.DevOpsAutomation
 
 			broadcastBlock.LinkTo(descriptiveTitleTransformBlock);
 			descriptiveTitleTransformBlock.LinkTo(batchBlock);
-			
+
 			broadcastBlock.LinkTo(descriptionTransformBlock);
 			descriptionTransformBlock.LinkTo(batchBlock);
 

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks.Dataflow;
 using System.Web;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 
 namespace TarikGuney.DevOpsAutomation.DataFlow
@@ -11,7 +12,7 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
     public static class EstimateWorkItemsTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new TransformBlock<List<JObject>, string>(workItems =>
+            new(workItems =>
             {
                 // Property names that has periods in them won't be parsed by Json.NET as opposed to online JSON Parser tools
                 // eg. $.value[?(@.fields['Microsoft.VSTS.Scheduling.StoryPoints'] == null && @.fields['System.AssignedTo'] != null)]
@@ -48,6 +49,10 @@ namespace TarikGuney.DevOpsAutomation.DataFlow
                     var chatDisplayName = devOpsGoogleChatUserMap == null
                         ? userDisplayName
                         : $"<users/{devOpsGoogleChatUserMap.GoogleChatUserId}>";
+
+                    Logger.CurrentLogger.LogInformation(
+	                    "BOARD: Missing story point for \"{workItemId}:{workItemTitle}\". Assigned to {userEmail} in {currentIteration}.",
+	                    workItemId, workItemTitle, userEmail, Config.CurrentIteration.Name);
 
                     messageBuilder.Append(
                         $"{chatDisplayName}, *estimate* the story point of <{workItemUrl}|{workItemTitle}>.\n\n");
