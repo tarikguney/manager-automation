@@ -66,8 +66,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
                         continue;
                     }
 
-                    var businessDaysPassed = DateTime.Now.Date - dueDate.Date -
-                                             TimeSpan.FromDays(weekendDaysCount + extraWeekendDays);
+                    var businessDaysPassed = DateTime.Now.Date - dueDate.Date;
 
                     var userDisplayName = offendingWorkItem["fields"]?["System.AssignedTo"]?["displayName"]
                         ?.Value<string>();
