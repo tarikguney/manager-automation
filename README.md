@@ -69,6 +69,12 @@ Note that all these logs start with `BOARD` to help you distinguish these log en
 
 The log messages above are taken directly from the code. As you might have guessed, they follow [**structural logging**](https://softwareengineering.stackexchange.com/a/312586/3613) pattern; meaning that they can easily be parsed and parameterized with the metadata they carry for each fields as represented by `{ }` as seen in `{workItemId}`.
 
+Samples from console environment:
+```
+[2020-12-26T21:36:32.640Z] BOARD: Missing story point for "12:Create the profile edit page". Assigned to atarikguney@gmail.com in Sprint 3.
+[2020-12-26T21:36:32.643Z] BOARD: Pending in incomplete state of Resolved for 28 days. Story "19:This is an active item". Assigned to atarikguney@gmail.com in Sprint 3.
+```
+
 More documentation and examples will follow as this is one of the most critical functionalities of Manager Automation tool.
 
 ## The Complete List of Reminders
