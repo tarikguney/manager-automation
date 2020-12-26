@@ -72,7 +72,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
                     var userDisplayName = offendingWorkItem["fields"]?["System.AssignedTo"]?["displayName"]
                         ?.Value<string>();
                     var workItemTitle = offendingWorkItem["fields"]?["System.Title"]?.Value<string>();
-                    var workItemId = offendingWorkItem["id"];
+                    var workItemId = offendingWorkItem["id"].Value<string>();
                     var workItemUrl = $"{baseUrl}/{workItemId}";
                     var currentStatus = offendingWorkItem["fields"]["System.State"].Value<string>();
 

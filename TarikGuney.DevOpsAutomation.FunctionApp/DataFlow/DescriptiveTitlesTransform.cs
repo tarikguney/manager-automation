@@ -40,7 +40,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
                             t.AzureDevOpsEmail.Equals(userEmail, StringComparison.InvariantCultureIgnoreCase));
 
                     var workItemTitle = offendingWorkItem["fields"]?["System.Title"]?.Value<string>();
-                    var workItemId = offendingWorkItem["id"];
+                    var workItemId = offendingWorkItem["id"].Value<string>();
                     var workItemUrl = $"{baseUrl}/{workItemId}";
 
                     var chatDisplayName = devOpsGoogleChatUserMap == null
