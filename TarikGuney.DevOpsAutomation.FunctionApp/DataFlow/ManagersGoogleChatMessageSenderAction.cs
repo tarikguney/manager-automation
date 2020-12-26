@@ -7,7 +7,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
 {
     public static class ManagersGoogleChatMessageSenderAction
     {
-        public static ActionBlock<string[]> Block => new(async messages =>
+        public static ActionBlock<string[]> Block => new ActionBlock<string[]>(async messages =>
         {
             var httpClient = new HttpClient();
             var yesterday = DateTime.Now.Subtract(TimeSpan.FromDays(1)).Date.ToShortDateString();

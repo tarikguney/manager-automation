@@ -12,7 +12,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
     public static class EstimateWorkItemsTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new(workItems =>
+            new TransformBlock<List<JObject>, string>(workItems =>
             {
                 // Property names that has periods in them won't be parsed by Json.NET as opposed to online JSON Parser tools
                 // eg. $.value[?(@.fields['Microsoft.VSTS.Scheduling.StoryPoints'] == null && @.fields['System.AssignedTo'] != null)]

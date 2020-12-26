@@ -7,7 +7,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
 {
     public static class LastDayOfCurrentIterationGoogleChatMessageSenderAction
     {
-        public static ActionBlock<string[]> Block => new(async messages =>
+        public static ActionBlock<string[]> Block => new ActionBlock<string[]>(async messages =>
         {
             var allCompleted = messages.All(string.IsNullOrWhiteSpace);
 

@@ -12,7 +12,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
     public static class PassedDueWorkItemsTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new(workItems =>
+            new TransformBlock<List<JObject>, string>(workItems =>
             {
                 var offendingWorkItems = workItems
                     .Where(wi => wi["fields"] is JObject fields &&

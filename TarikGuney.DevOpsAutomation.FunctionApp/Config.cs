@@ -72,8 +72,9 @@ namespace TarikGuney.ManagerAutomation
 		{
 			var config = new ConfigurationBuilder()
 				.SetBasePath(context.FunctionAppDirectory)
-				.AddJsonFile("appsettings.atarikguney.json", true, reloadOnChange: true)
-				//.AddJsonFile("appsettings.msi.json", optional: true, reloadOnChange: true)
+				.AddJsonFile("local.settings.json", true, reloadOnChange: true)
+				.AddJsonFile("secrets/appsettings.personal.json", true, reloadOnChange: true)
+				//.AddJsonFile("secrets/appsettings.msi.json", optional: true, reloadOnChange: true)
 				.AddEnvironmentVariables()
 				.Build();
 			return config;

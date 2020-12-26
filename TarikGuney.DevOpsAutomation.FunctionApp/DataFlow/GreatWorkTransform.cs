@@ -11,7 +11,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
     public static class GreatWorkTransform
     {
         public static TransformBlock<List<JObject>, string> Block =>
-            new(workItems =>
+            new TransformBlock<List<JObject>, string>(workItems =>
             {
                 var workItemsByPersons = workItems
                     .Where(wi => wi["fields"] is JObject fields &&

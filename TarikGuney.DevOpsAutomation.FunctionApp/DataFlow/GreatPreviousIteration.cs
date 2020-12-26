@@ -13,7 +13,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
         public const string GreatWorkGreeting = "good job";
 
         public static TransformBlock<List<JObject>, string> Block =>
-            new(workItems =>
+            new TransformBlock<List<JObject>, string>(workItems =>
             {
                 var workItemsByPersons = workItems
                     .Where(wi => wi["fields"] is JObject fields &&

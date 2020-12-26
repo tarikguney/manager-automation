@@ -20,7 +20,7 @@ namespace TarikGuney.ManagerAutomation.DataFlow
 		}
 
 		public static TransformBlock<IterationTimeFrame, List<JObject>> Block =>
-			new(async iteration =>
+			new TransformBlock<IterationTimeFrame, List<JObject>>(async iteration =>
 			{
 				var retriever =
 					new IterationWorkItemsRetrieverTransform(Config.AzureDevOpsSettings,
