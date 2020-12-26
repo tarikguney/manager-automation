@@ -103,7 +103,7 @@ On the first day of the Sprint, this automation checks if there is any remaining
 
 ## Setup and Configuration
 ### Dependencies
-This project is developed for **[Azure Functions](https://azure.microsoft.com/en-us/services/functions)** with **.[NET 5, (originally .NET Core 3.x)](https://dotnet.microsoft.com/)**. Hence, some basic knowledge in this technology stack is helpful. Also, this service assumes that you are using **[Azure DevOps](https://dev.azure.com)** as the project planning/tracking environment and **[Google Chat](https://chat.google.com)** as the communication medium among your team members.
+This project is developed for **[Azure Functions](https://azure.microsoft.com/en-us/services/functions)** with [**.NET Core 3.1**](https://dotnet.microsoft.com/)**. Hence, some basic knowledge in this technology stack is helpful. Also, this service assumes that you are using **[Azure DevOps](https://dev.azure.com)** as the project planning/tracking environment and **[Google Chat](https://chat.google.com)** as the communication medium among your team members.
 ### Publishing to Azure Functions
 Deploying this source code to the Azure Function is easy. This project uses the Library version of Azure Functions. Check out these steps to learn how to publish Azure Functions: [Publish to Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs#publish-to-azure).
 
