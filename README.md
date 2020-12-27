@@ -26,10 +26,22 @@ Table of Contents
       * [Dependencies](#dependencies)
       * [Publishing to Azure Functions](#publishing-to-azure-functions)
       * [App Settings](#app-settings)
-         * [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
+         * [Available settings](#available-settings)
          * [Where to put the app settings?](#where-to-put-the-app-settings)
+         * [Explanation of each setting](#explanation-of-each-setting)
+            * [AzureDevOps__ApiKey](#azuredevops__apikey)
+            * [AzureDevOps__Organization](#azuredevops__organization)
+            * [AzureDevOps__Project](#azuredevops__project)
+            * [AzureDevOps__Team](#azuredevops__team)
+            * [AzureDevOpsUsersMapToGoogleChat](#azuredevopsusersmaptogooglechat)
+            * [EngineeringManagerInfo__AzureDevOpsEmail](#engineeringmanagerinfo__azuredevopsemail)
+            * [EngineeringManagerInfo__GoogleChatUserId](#engineeringmanagerinfo__googlechatuserid)
+            * [EngineeringManagerInfo__ManagerRemindersGoogleWebhookUrl](#engineeringmanagerinfo__managerremindersgooglewebhookurl)
+            * [GoogleChat__WebhookUrl](#googlechat__webhookurl)
+            * [WEBSITE_TIME_ZONE](#website_time_zone)
+         * [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
 
-<!-- Added by: tarikguney, at: Sun Dec 27 00:19:32 MST 2020 -->
+<!-- Added by: tarikguney, at: Sun Dec 27 11:14:38 MST 2020 -->
 
 <!--te-->
 
@@ -152,6 +164,8 @@ To complete app settings, you need various pieces of information from Azure DevO
 
 In addition to the default app settings that come with the Azure Function creation, there are some custom settings that the source code depends on as follows. All of them are required!
 
+### Available settings
+
 ```json
 [
   {
@@ -207,6 +221,74 @@ In addition to the default app settings that come with the Azure Function creati
 ]
 ```
 
+### Where to put the app settings?
+
+Don't store the application settings in `appsettings.json` file. I recommend `appsettings.json` file only for local development since Azure Functions App have a better place to put the configuration settings via Azure Portal. Visit the `Configuration` link in your Functions instance as shown below:
+
+<img src="./assets/screenshots/azure-functions-app-settings.png" width="700">
+
+This way, you don't have re-publish the function app when you change a setting.
+
+### Explanation of each setting
+
+Note that the double underscore (`__`) in the setting names have a [special meaning in .NET Core configurations](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0#environment-variables). Basically, they are used to group the settings in the environment variables.
+
+#### `AzureDevOps__ApiKey`
+
+This is your personal access token. Check out this page to see how to get it from Azure DevOps: [**Create a PAT**](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat). When creating your PAT, you can define the scopes this token can access. Keep it limited to the following scopes for most safety:
+
+1. Choose “Custom Defined”
+2. Code > Read
+3. Project and Team > Read
+4. Work Items > Read
+
+Then, follow these steps to generate the API key you need for this setting:
+1. Use this format: `:personal-access-token` --> Don't forget to add the colon at the beginning.
+2. Encode it with Base64String
+3. Use the resulting string as the value for this setting.
+
+#### `AzureDevOps__Organization`
+
+This is the organization of your Azure DevOps. You can infer this value from the URL: `https://dev.azure.com/{organization}`. The first segment in the path of the DevOps URL is the organization. Simply use that value.
+
+#### `AzureDevOps__Project`
+
+You can create multiple projects in Azure DevOps, and this setting requires one of them under which you sprint boards, etc. are all defined. When you go to your organization URL `dev.azure.com/{organization}`, you will be presented with the projects. Simply choose the one you desire and copy their names as they appear on that screen to use as the value of this setting.
+
+#### `AzureDevOps__Team`
+
+You can define teams in Azure DevOps, and boards are associated with teams. Use that team name as the value for this setting. Check out this page to learn more about teams: [**Add team, go from one default team to others**](https://docs.microsoft.com/en-us/azure/devops/organizations/settings/add-teams?view=azure-devops&tabs=preview-page)
+
+#### `AzureDevOpsUsersMapToGoogleChat`
+
+In order to determine whom to send the message to, there should be some mapping between Azure DevOps users and Google Chat users. Google Chat Webhook API only works with Google Chat User Ids, and this setting is to map between these values. Map all of the team members in this setting as the recommended approach. Otherwise, some members may not be properly mentioned in Google Chat. This value accepts multiple mappings separated by semi-colon (`;`). Check out this link to see how to extract Google Chat Id: [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
+
+`AZURE-DEVOPS-USER1-EMAIL:GOOGLE-CHAT-ID-1` would translate to `michael.smith@gmail.com:2333181726262`in a real-world setting.
+
+#### `EngineeringManagerInfo__AzureDevOpsEmail`
+
+Team and project/engineering managers receive different messages. Therefore, project/engineering manager information is asked separately. Use your DevOps email as the value of this setting.
+
+#### `EngineeringManagerInfo__GoogleChatUserId`
+
+Similar to other Google Chat Ids, use the Google Chat Id of the project/engineering manager as the value of this settings. Find out more at [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
+
+#### `EngineeringManagerInfo__ManagerRemindersGoogleWebhookUrl`
+
+Google Chat has webhooks to receive messages through. It is really easy to create Webhook URLs through Google Chat as explained here [Using incoming webhooks](https://developers.google.com/hangouts/chat/how-tos/webhooks).
+
+This particular setting is asking for a private room webhook to send [Managers-only Automation](#managers-only-automation) messages.
+
+#### `GoogleChat__WebhookUrl`
+
+Google Chat has webhooks to receive messages through. It is really easy to create Webhook URLs through Google Chat as explained here [Using incoming webhooks](https://developers.google.com/hangouts/chat/how-tos/webhooks).
+
+This particular setting is asking for the team room webhook to send automation messages.
+
+#### `WEBSITE_TIME_ZONE`
+
+This is a pre-defined setting understood by Azure Functions, and is required for determining the time zone for the automation to determine how to calculate time and days to send the messages out. You can find all of the available options here: [Time Zones](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)#time-zones). Use the values from the left side as they appear, with spaces and such. For example: `Mountain Standard Time`.
+
 ### Finding Google Chat Id (UserId)
 
 Google Chat Id is used in the following configuration settings and is important for notifying the right team members through Google Chat.
@@ -227,10 +309,3 @@ It is not super straightforward and intuitive to find out what this value is for
 
 <img src="./assets/screenshots/google-chat-id.png" width="700">
 
-### Where to put the app settings?
-
-Don't store the application settings in `appsettings.json` file. I recommend `appsettings.json` file only for local development since Azure Functions App have a better place to put the configuration settings via Azure Portal. Visit the `Configuration` link in your Functions instance as shown below:
-
-<img src="./assets/screenshots/azure-functions-app-settings.png" width="700">
-
-This way, you don't have re-publish the function app when you change a setting.
