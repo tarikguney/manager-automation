@@ -40,8 +40,9 @@ Table of Contents
             * [GoogleChat__WebhookUrl](#googlechat__webhookurl)
             * [WEBSITE_TIME_ZONE](#website_time_zone)
          * [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
+   * [FAQ](#faq)
 
-<!-- Added by: tarikguney, at: Sun Dec 27 11:14:38 MST 2020 -->
+<!-- Added by: tarikguney, at: Sun Dec 27 13:17:19 MST 2020 -->
 
 <!--te-->
 
