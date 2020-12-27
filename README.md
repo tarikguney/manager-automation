@@ -109,7 +109,7 @@ On the first day of the Sprint, this automation checks if there is any remaining
 
 ## Setup and Configuration
 ### Dependencies
-This project is developed for **[Azure Functions](https://azure.microsoft.com/en-us/services/functions)** with [**.NET Core 3.1**](https://dotnet.microsoft.com/)**. Hence, some basic knowledge in this technology stack is helpful. Also, this service assumes that you are using **[Azure DevOps](https://dev.azure.com)** as the project planning/tracking environment and **[Google Chat](https://chat.google.com)** as the communication medium among your team members.
+This project is developed for **[Azure Functions](https://azure.microsoft.com/en-us/services/functions) with [**.NET Core 3.1**](https://dotnet.microsoft.com/)**. Hence, some basic knowledge in this technology stack is helpful. Also, this service assumes that you are using **[Azure DevOps](https://dev.azure.com)** as the project planning/tracking environment and **[Google Chat](https://chat.google.com)** as the communication medium among your team members.
 ### Publishing to Azure Functions
 Deploying this source code to the Azure Function is easy. This project uses the Library version of Azure Functions. Check out these steps to learn how to publish Azure Functions: [Publish to Azure](https://docs.microsoft.com/en-us/azure/azure-functions/functions-develop-vs#publish-to-azure).
 
@@ -177,3 +177,23 @@ In addition to the default app settings that come with the Azure Function creati
   }
 ]
 ```
+
+#### Finding Google Chat Id (UserId)
+
+Google Chat Id is used in the following configuration settings and is important for notifying the right team members through Google Chat.
+
+```json
+ {
+	"name": "AzureDevOpsUsersMapToGoogleChat",
+	"value": "AZURE-DEVOPS-USER1-EMAIL:GOOGLE-CHAT-ID-1;AZURE-DEVOPS-USER2-EMAIL:GOOGLE-CHAT-ID-2",
+	"slotSetting": false
+},
+{
+	"name": "EngineeringManagerInfo__GoogleChatUserId",
+	"value": "ENGINEERING-MANAGER-GOOGLE-CHAT-ID",
+	"slotSetting": false
+}
+```
+It is not super straightforward and intuitive to find out what this value is for each team member. It is not an an exposed value on the Google Chat UI; therefore, you need to use the tools like Google Chrome Developer Tools to extract it. You have to copy the numbers next to `user/human/` value in `data-member-id` HTML attribute as shown in the screenshot below:
+
+![](./assets/screenshots/google-chat-id.png)
