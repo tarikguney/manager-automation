@@ -28,8 +28,9 @@ Table of Contents
          * [Publishing to Azure Functions](#publishing-to-azure-functions)
          * [App Settings](#app-settings)
             * [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
+            * [Where to put the app settings?](#where-to-put-the-app-settings)
 
-<!-- Added by: tarikguney, at: Sat Dec 26 18:47:43 MST 2020 -->
+<!-- Added by: tarikguney, at: Sat Dec 26 20:57:49 MST 2020 -->
 
 <!--te-->
 
@@ -224,3 +225,11 @@ Google Chat Id is used in the following configuration settings and is important 
 It is not super straightforward and intuitive to find out what this value is for each team member. It is not an an exposed value on the Google Chat UI; therefore, you need to use the tools like Google Chrome Developer Tools to extract it. You have to copy the numbers next to `user/human/` value in `data-member-id` HTML attribute as shown in the screenshot below:
 
 <img src="./assets/screenshots/google-chat-id.png" width="700">
+
+#### Where to put the app settings?
+
+Don't store the application settings in `appsettings.json` file. I recommend `appsettings.json` file only for local development since Azure Functions App have a better place to put the configuration settings via Azure Portal. Visit the `Configuration` link in your Functions instance as shown below:
+
+<img src="./assets/screenshots/azure-functions-app-settings.png" width="700">
+
+This way, you don't have re-publish the function app when you change a setting.
