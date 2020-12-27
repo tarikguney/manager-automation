@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarikGuney.DevOpsAutomation.FunctionApp", "TarikGuney.DevOpsAutomation.FunctionApp\TarikGuney.DevOpsAutomation.FunctionApp.csproj", "{3F23FD09-A46F-406E-82D9-4A2D82876389}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarikGuney.ManagerAutomation.FunctionApp", "TarikGuney.ManagerAutomation.FunctionApp\TarikGuney.ManagerAutomation.FunctionApp.csproj", "{3F23FD09-A46F-406E-82D9-4A2D82876389}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
