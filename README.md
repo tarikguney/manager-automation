@@ -309,3 +309,31 @@ It is not super straightforward and intuitive to find out what this value is for
 
 <img src="./assets/screenshots/google-chat-id.png" width="700">
 
+# FAQ
+
+**Where are the unit tests?**
+
+I originally developed this tool as a small utility service to automate some of my work, but it grew quickly as I realize the potential of this tool. I will be adding unit tests later on.
+
+**Where did the idea come from?**
+
+From my own experiences. I noticed that I could not scale my time if I didn't automate some of my daily tasks, and this project was born. In general, I like developing tools that make my live easier, and I love tools that offer practical impact and improvements to my daily life. You can check out my other projects at [github.com/tarikguney](https://github.com/tarikguney) to explore my other tools that were developed with this simple idea in mind. Since, there are lots of people like myself sharing the same challenges, developing a tool for myself ends up helping a lot of other people out there.
+
+
+**What's the roadmap/future of this project?**
+
+I have learned quite a bit from this project, and I will be maintaining this project time to time. But, my next project, that will take this simple idea a lot farther, will be [**Projekt Hive**](https://github.com/tarikguney/projekt-hive). I will be incorporating what I have learned so far and more into Projekt Hive.
+
+**How can I contribute?**
+
+There are multiple areas where contribution is needed:
+
+1. Adding more message targets like Slack, Discord, etc. similar to Google Chat.
+2. Adding unit tests!
+3. Bringing the project to a more unit testable state. I used .NET DataFlow pattern which is little challenging when it comes to Dependency Injection. However, I like to keep the actor pattern in place since it is really suitable for this type of projects.
+4. Test it and log bugs in the issues page
+
+Since this is my personal side project, I cannot immediately answer questions or review PRs but I will do my best. So, please feel free to contribute but just be a little patient with me.
+
+
+
