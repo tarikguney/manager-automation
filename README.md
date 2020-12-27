@@ -19,26 +19,24 @@ There are some screenshots of the messages below for you to see what's being com
 ### In-Sprint action reminders
 Manager Automation service sends daily reminders as demonstrated in the screenshots below. These series of reminders ensure the necessary actions being taken by the team members. The reminders use Google Chat's name mentioning feature to help the targeted team members to get on-time and relevant notifications through the Google Chat.
 
-![](./assets/screenshots/in-sprint-alt3.png)
-
-![](./assets/screenshots/in-sprint-alt2.png)
-
-![](./assets/screenshots/in-sprint-alt1.png)
+<img src="./assets/screenshots/in-sprint-alt3.png" width="800">
+<img src="./assets/screenshots/in-sprint-alt2.png" width="800">
+<img src="./assets/screenshots/in-sprint-alt1.png" width="800">
 
 ### End-of-sprint action reminders
 Manager Automation service embeds specific situational facts in the reminder text. For example, it changes its greeting when it is the last day of the Sprint to draw people's attention to the fact that the Sprint is about to end, and there might be some missing work in the Sprint. It also guides the team members on how the incomplete work must be handled based on the time available and committed time for the work item estimated by the engineer.
 
-![](./assets/screenshots/last-day-sprint-reminders.png)
+<img src="./assets/screenshots/last-day-sprint-reminders.png" width="800">
 
 ### New Sprint action reminders
 When it is the first day of the new Sprint, the automation service will analyze the previous Sprint one more time and bring up any issues that are left unresolved.
 
-![](./assets/screenshots/new-sprint-reminders.png)
+<img src="./assets/screenshots/new-sprint-reminders.png" width="800">
 
 ### Managers-only reminders
 As an engineering manager, it is often crucial to be aware of the work's progression on time and catch the delay before becoming a big problem. There might be many reasons why work is delayed. For instance, engineering might be blocked. Regardless of the reason, if a task is taking an unreasonable amount of time, you will need to reach out and see what's going on and how you can help the team member with the progression of the work. The Manager Automation service collects this information for you -- the engineering manager -- and reports them daily in a private Google Chat room.
 
-![](./assets/screenshots/managers-only-reminders.png)
+<img src="./assets/screenshots/managers-only-reminders.png" width="800">
 
 ## Reporting
 
@@ -115,7 +113,7 @@ Deploying this source code to the Azure Function is easy. This project uses the 
 
 Once you deploy this function app to Azure Functions, these are the functions that will appear on the Azure Portal:
 
-![](./assets/screenshots/functions.png)
+<img src="./assets/screenshots/functions.png" width="600">
 
 ### App Settings
 
@@ -183,17 +181,17 @@ In addition to the default app settings that come with the Azure Function creati
 Google Chat Id is used in the following configuration settings and is important for notifying the right team members through Google Chat.
 
 ```json
- {
-	"name": "AzureDevOpsUsersMapToGoogleChat",
-	"value": "AZURE-DEVOPS-USER1-EMAIL:GOOGLE-CHAT-ID-1;AZURE-DEVOPS-USER2-EMAIL:GOOGLE-CHAT-ID-2",
-	"slotSetting": false
+{
+  "name": "AzureDevOpsUsersMapToGoogleChat",
+  "value": "AZURE-DEVOPS-USER1-EMAIL:GOOGLE-CHAT-ID-1;AZURE-DEVOPS-USER2-EMAIL:GOOGLE-CHAT-ID-2",
+  "slotSetting": false
 },
 {
-	"name": "EngineeringManagerInfo__GoogleChatUserId",
-	"value": "ENGINEERING-MANAGER-GOOGLE-CHAT-ID",
-	"slotSetting": false
+  "name": "EngineeringManagerInfo__GoogleChatUserId",
+  "value": "ENGINEERING-MANAGER-GOOGLE-CHAT-ID",
+  "slotSetting": false
 }
 ```
 It is not super straightforward and intuitive to find out what this value is for each team member. It is not an an exposed value on the Google Chat UI; therefore, you need to use the tools like Google Chrome Developer Tools to extract it. You have to copy the numbers next to `user/human/` value in `data-member-id` HTML attribute as shown in the screenshot below:
 
-![](./assets/screenshots/google-chat-id.png)
+<img src="./assets/screenshots/google-chat-id.png" width="700">
