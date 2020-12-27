@@ -4,6 +4,35 @@ Developed with the following technologies by [@tarikguney](https://github.com/ta
 
 ![](./assets/manager-automation-hq-banner.png)
 
+Table of Contents
+=================
+
+<!--ts-->
+   * [Table of Contents](#table-of-contents)
+   * [Manager Automation](#manager-automation)
+      * [What is it?](#what-is-it)
+      * [Underlying Design Principle](#underlying-design-principle)
+      * [How does it look?](#how-does-it-look)
+         * [In-Sprint action reminders](#in-sprint-action-reminders)
+         * [End-of-sprint action reminders](#end-of-sprint-action-reminders)
+         * [New Sprint action reminders](#new-sprint-action-reminders)
+         * [Managers-only reminders](#managers-only-reminders)
+      * [Reporting](#reporting)
+      * [The Complete List of Reminders](#the-complete-list-of-reminders)
+         * [Current Iteration Automation](#current-iteration-automation)
+         * [End of the Sprint Reminders](#end-of-the-sprint-reminders)
+         * [Retrospective Automation](#retrospective-automation)
+         * [Managers-only Automation](#managers-only-automation)
+      * [Setup and Configuration](#setup-and-configuration)
+         * [Dependencies](#dependencies)
+         * [Publishing to Azure Functions](#publishing-to-azure-functions)
+         * [App Settings](#app-settings)
+            * [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
+
+<!-- Added by: tarikguney, at: Sat Dec 26 18:47:43 MST 2020 -->
+
+<!--te-->
+
 # Manager Automation
 
 ## What is it?
