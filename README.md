@@ -124,7 +124,7 @@ More documentation and examples will follow as this is one of the most critical 
 
 The log entries above are logged as trace. This is default log type in Azure Functions runtime. Therefore, when you go to the Log tab on Azure Portal, search the log entries in the trace section. You can also create dashboard for more convenient view. Check out the image below, it will show you how to access the Log and how to perform a simple search to find the relevant log entries for further reporting needs:
 
-<img src="./assets/screenshots/app-insights-trace-log.png" width="600">
+<img src="./assets/screenshots/app-insights-trace-log.png" width="700">
 
 # The Complete List of Reminders
 This function application consists of three primary functions:
