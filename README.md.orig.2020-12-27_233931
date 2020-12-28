@@ -17,7 +17,6 @@ Table of Contents
    * [Reporting](#reporting)
       * [What's being logged?](#whats-being-logged)
       * [Real-world log samples from the console](#real-world-log-samples-from-the-console)
-      * [Where to find the logs in Application Insights?](#where-to-find-the-logs-in-application-insights)
    * [The Complete List of Reminders](#the-complete-list-of-reminders)
       * [Current Iteration Automation](#current-iteration-automation)
       * [End of the Sprint Reminders](#end-of-the-sprint-reminders)
@@ -43,7 +42,7 @@ Table of Contents
          * [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
    * [FAQ](#faq)
 
-<!-- Added by: tarikguney, at: Sun Dec 27 23:39:31 MST 2020 -->
+<!-- Added by: tarikguney, at: Sun Dec 27 13:17:19 MST 2020 -->
 
 <!--te-->
 
@@ -124,7 +123,7 @@ More documentation and examples will follow as this is one of the most critical 
 
 The log entries above are logged as trace. This is default log type in Azure Functions runtime. Therefore, when you go to the Log tab on Azure Portal, search the log entries in the trace section. You can also create dashboard for more convenient view. Check out the image below, it will show you how to access the Log and how to perform a simple search to find the relevant log entries for further reporting needs:
 
-<img src="./assets/screenshots/app-insights-trace-log.png" width="600">
+<img src="./assets/screenshots/app-insights-trace-log.png.png" width="600">
 
 # The Complete List of Reminders
 This function application consists of three primary functions:
