@@ -271,7 +271,7 @@ You can define teams in Azure DevOps, and boards are associated with teams. Use 
 
 In order to determine whom to send the message to, there should be some mapping between Azure DevOps users and Google Chat users. Google Chat Webhook API only works with Google Chat User Ids, and this setting is to map between these values. Map all of the team members in this setting as the recommended approach. Otherwise, some members may not be properly mentioned in Google Chat. This value accepts multiple mappings separated by semi-colon (`;`). Check out this link to see how to extract Google Chat Id: [Finding Google Chat Id (UserId)](#finding-google-chat-id-userid)
 
-`AZURE-DEVOPS-USER1-EMAIL:GOOGLE-CHAT-ID-1` would translate to `michael.smith@gmail.com:2333181726262`in a real-world setting.
+`AZURE-DEVOPS-USER1-EMAIL:GOOGLE-CHAT-ID-1` would translate to `michael.smith@gmail.com:2333181726262`in a real-world setting. Another example with multiple mappings would be as follows: `michael.smith@gmail.com:2333181726262;tarik.guney@fakeaddress.com:23344556311`. Note the `;` as the separator of these mappings. You can add as many as you want. 
 
 #### `EngineeringManagerInfo__AzureDevOpsEmail`
 
