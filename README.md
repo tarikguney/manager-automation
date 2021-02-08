@@ -1,3 +1,9 @@
+## Depreciation Notice
+
+This repo will be archived. All of the new development will continue from the Version 2 at https://github.com/tarikguney/manager-automation-v2. The new version is written with Akka.NET from ground up, and more robust!
+
+----
+
 Developed with the following technologies by [@tarikguney](https://github.com/tarikguney)
 
 ![](./assets/logo/azure-functions.png) ![](./assets/logo/dotnet-core-logo.png)
